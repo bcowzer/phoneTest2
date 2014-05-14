@@ -17,7 +17,7 @@
         B Cowzer
     </author>
             
-        
+         <icon src= "images/classis.jpg" />
       
 <feature name="http://api.phonegap.com/1.0/camera"/>
         <gap:platform name="android" />
