@@ -16,9 +16,9 @@
     <author href="" email="">
         B Cowzer
     </author>
-            <
+            
         
-        <icon src="icon.png" />
+      
 
         <gap:platform name="android" />
 
