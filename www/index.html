@@ -101,13 +101,35 @@ alert('Failed because: ' + message);
 }
  
 </script>
+       <link rel="stylesheet" href="themes/classis2.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <style>
+img{
+position:relative;
+left:100px;
+}
+</style>
 </head>
 <body>
-<button onclick="capturePhotoWithData();">Capture Photo With Image Data</button> <br>
-<button onclick="capturePhotoWithFile();">Capture Photo With Image File URI</button> <br>
+    <div data-role="header" data-position="fixed">
+    <h1>ClassIS App</h1></div><br>
+    
+<!--<button onclick="capturePhotoWithData();">Capture Photo With Image Data</button> <br> -->
+<button onclick="capturePhotoWithFile();">Capture Photo With Device camera</button> <br>
 <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
 <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
 <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
 <img style="display:none;" id="largeImage" src="" />
+    
+    <div>
+        <img src ="images/classis.jpg">
+        </div>
+    
+    <div data-role="footer" data-position="fixed">
+    <h1> Learning Data ClassIS</h1></div>
+    
 </body>
 </html>
