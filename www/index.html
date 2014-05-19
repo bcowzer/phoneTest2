@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Capture Photo</title>
+    <!-- from here https://gist.github.com/dhavaln/2238017 -->
 <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1"/>
 <script src="phonegap.js"></script>
 <script type="text/javascript" charset="utf-8">
@@ -119,9 +120,10 @@ left:50px;
     
 <!--<button onclick="capturePhotoWithData();">Capture Photo With Image Data</button> <br> -->
 <button onclick="capturePhotoWithFile();">Capture Photo With Device camera</button> <br>
+    <!-- use img onclick....src.. to call from icon -->
 <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
 <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
-<img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+<img style="display:none;width:150px;height:300px;" id="smallImage" src="" />
 <img style="display:none;" id="largeImage" src="" />
     
     <div>
