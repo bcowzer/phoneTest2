@@ -7,10 +7,10 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>camera test</name>
+    <name> camera test</name>
 
     <description>
-        test app for camera function 
+        test app camera function 
     </description>
 
     <author href="" email="">
