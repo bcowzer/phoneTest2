@@ -28,13 +28,13 @@
 
         console.log(JSON.stringify(imageData));
 
-        var smallImage = document.getElementById('smallImage');
+        var userPhoto = document.getElementById('userPhoto');
  
 
-        smallImage.style.display = 'block';
+        userPhoto.style.display = 'block';
  
 
-        smallImage.src = imageData;
+        userPhoto.src = imageData;
     }
 
 
@@ -76,8 +76,8 @@ left:50px;
 <button onclick="capturePhotoWithFile();">Capture a Photo With the Device Camera</button> <br>
     <!-- use img onclick....src.. to call from icon -->
 
-<img width = "300" height = "450" id="smallImage" src="" />
-<img width = "300" height = "450" id="largeImage" src="" />
+<img width = "300" height = "450" id="userPhoto" src="" />
+
     
     <div>
         <img src ="images/classis.jpg">
