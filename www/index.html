@@ -4,10 +4,21 @@
 <title>Capture Photo</title>
     <!-- from here https://gist.github.com/dhavaln/2238017 -->
 <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1"/>
+       <link rel="stylesheet" href="themes/classis2.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+<style>
+img{
+position:relative;
+left:50px;
+}
+</style>
 <script src="phonegap.js"></script>
 <script type="text/javascript" charset="utf-8">
  
-    var pictureSource; // picture source
+    /* var pictureSource; // picture source
     var destinationType; // sets the format of returned value
  
 // Wait for PhoneGap to connect with the device
@@ -21,13 +32,11 @@
         destinationType=navigator.camera.DestinationType;
     }
 
-
+*/
 
     
     function onPhotoFileSuccess(imageData) {
-
-        console.log(JSON.stringify(imageData));
-
+        alert ("something");
         var userPhoto = document.getElementById('userPhoto');
  
 
@@ -55,17 +64,7 @@
     }
  
 </script>
-       <link rel="stylesheet" href="themes/classis2.min.css" />
-    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-<style>
-img{
-position:relative;
-left:50px;
-}
-</style>
+    
 </head>
 <body>
     
