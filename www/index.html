@@ -1,89 +1,54 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>Capture Photo</title>
-    <!-- from here https://gist.github.com/dhavaln/2238017 -->
-<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1"/>
-       <link rel="stylesheet" href="themes/classis2.min.css" />
-    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-<style>
-img{
-position:relative;
-left:50px;
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+   
+  </head>
+  <body>
+      <script language="javascript">
+<!--//
+/*This Script http://www.javascriptkit.com/script/cut76.shtml*/
+function pasuser(form) {
+if (form.id.value=="guest") { 
+if (form.pass.value=="123") {              
+location="page2.html" 
+} else {
+alert("Invalid Password")
 }
-</style>
-<script src="phonegap.js"></script>
-<script type="text/javascript" charset="utf-8">
- 
-    /* var pictureSource; // picture source
-    var destinationType; // sets the format of returned value
- 
-// Wait for PhoneGap to connect with the device
-//
-    document.addEventListener("deviceready",onDeviceReady,false);
- 
-// PhoneGap is ready to be used!
-//
-    function onDeviceReady() {
-        pictureSource=navigator.camera.PictureSourceType;
-        destinationType=navigator.camera.DestinationType;
-    }
-
-*/
-
-    
-    function onPhotoFileSuccess(imageData) {
-        alert ("something");
-        var userPhoto = document.getElementById('userPhoto');
- 
-
-        userPhoto.style.display = 'block';
- 
-
-        userPhoto.src = imageData;
-    }
+} else {  alert("Invalid UserID")
+}
+}
+//-->
 
 
- 
 
-    function capturePhotoWithFile() {
-        navigator.camera.getPicture(onPhotoFileSuccess, onFail, {
-            quality: 50, 
-            destinationType: Camera.DestinationType.FILE_URI 
-        });
-    }
 
- 
-// Called if something bad happens.
-//
-    function onFail(message) {
-        alert('Failed because: ' + message);
-    }
- 
 </script>
-    
-</head>
-<body>
-    
-    <div data-role="header" data-position="fixed">
-    <h1>ClassIS App</h1></div><br>
+    <div class="container">
+
+      <form class="form-signin" name ="login" role="form">
+        <h2 class="form-signin-heading">Please sign in</h2>
+       <input name="id" type="text" placeholder="Username" class="form-control" required autofocus>
+          
+        <input name="pass" type="password" placeholder="Password" class="form-control" required>
+       
+        <button class="btn btn-lg btn-primary btn-block" input type="button" value ="Login"  onClick="pasuser(this.form)">Sign in</button>
+      </form>
+
+    </div>
+      
     
 
-<button onclick="capturePhotoWithFile();">Capture a Photo With the Device Camera</button> <br>
-    <!-- use img onclick....src.. to call from icon -->
-
-<img width = "300" height = "450" id="userPhoto" src="" />
-
-    
-    <div>
-        <img src ="images/classis.jpg">
-        </div>
-    
-    <div data-role="footer" data-position="fixed">
-    <h1> Learning Data ClassIS</h1></div>
-    
-</body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>
