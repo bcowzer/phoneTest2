@@ -59,35 +59,29 @@ left:50px;
     <!--Parameters selected: where teacher chooses class, profile and component/strandid to upload a picture-->
 <div class ="container" id='params' style='display:'>
 	Class
-    <form name = "userclass">
-	<select name='class' onChange = "classid = this.value" id='class'>
+	<select name='class' id='class'>
 		<option value='0'> </option>
-		<option value='674'>EYNAA</option>
-		<option value='675'>EYRAA</option>
+		<option value='class1'>Class 1</option>
+		<option value='class2'>Class 2</option>
 	</select>
-        </form>
 	<br>
 	Profile
-    <form name = "userprofile">
-	<select name='profile' onChange= "profileid = this.value" id='profile'>
-        <option value='0'></option>
-		<option value='ELG'>Early learning Goals</option>
-		<option value='EYFS2436'>Early Years Foundation Stage 2436</option>
-		<option value='EYFS3648'>Early Years Foundation Stage 3648</option>
+	<select name='profile' id='profile'>
+		<option value='0'> </option>
+		<option value='profile1'>Profile 1</option>
+		<option value='profile2'>Profile 2</option>
+		<option value='profile3'>Profile 3</option>
 	</select>
-        </form>
 	<br>
 	Component
-    <form name ="usercomponent">
-	<select name='component' onChange="componentid = this.value" id='component'>
+	<select name='component' id='component'>
 		<option value='0'> </option>
-		<option value='UW:TW'>UW:TW</option>
-		<option value='PD:MH'>PD:MH</option>
+		<option value='component1'>Component 1</option>
+		<option value='component2'>Component 2</option>
 		<option value='component3'>Component 3</option>
 	</select>
-        </form>
 	<br>
-	<input type="button" value='Go' onclick="submit();">
+	<input type="button" value='Get statements' onclick="submit();">
 </div>
 
 
@@ -113,9 +107,9 @@ left:50px;
 	var user='admin2';
 	var token='132fbdf473cd76432357a3e146032b28';
 	var schoolid='demoes';
-	var classid=document.userclass.class.value;
-	var componentid= document.usercomponent.component.value;
-	var profileid=document.userprofile.profile.value;
+	var classid='675';
+	var componentid='CL:LA';
+	var profileid='ELG';
 
 	function statementsbody(){
 		document.getElementById('statementsbody').style.display='block';
@@ -181,63 +175,6 @@ left:50px;
 		xmlhttps.send();
 		}
     
-    
-		/*Upload pictures*/
-		var upload=function() {
-			var photo=document.getElementById("photo");
-			var files=photo.files;
-			var imagesdata={};
-			for(var i=0;i<files.length;i++){
-				var reader=new FileReader();
-				reader.onload = (function(theFile){
-					var fileName=theFile.name;
-					var count=i;
-					var filesno=files.length-1;
-					return function(e){
-						imagesdata[count]={};
-						imagesdata[count]['photo']=e.target.result;
-						imagesdata[count]['name']=fileName;
-						document.getElementById('preview').src=e.target.result;
-						if(count==filesno){
-							var checkboxes=document.getElementsByName('students[]');
-							var checkedCheckboxes={};
-							for(var i=0; i<checkboxes.length; i++) {
-								if(checkboxes[i].checked){
-									checkedCheckboxes[i]=checkboxes[i].value;
-									}
-								}
-
-							var radiobuttons=document.getElementsByName('statement');
-							var checkedRadio='';
-							for (var i=0; i<radiobuttons.length; i++) {
-								if(radiobuttons[i].checked){
-									checkedRadio=radiobuttons[i].value;
-									}
-								}
-
-							var xmlhttpf=new XMLHttpRequest();
-							xmlhttpf.onreadystatechange=function(){
-								if(xmlhttpf.readyState==4 && xmlhttpf.status==200){
-									console.log(xmlhttpf.responseText);
-									var data=JSON.parse(xmlhttpf.responseText);
-									console.log(data);
-									if(data.success){
-										alert('File uploaded');
-										}
-									}
-								};
-							xmlhttpf.open("POST",apiURL+"?schoolid="+schoolid+"&username="+user+"&token="+token+"&action=poststatementphoto&post=true",true);
-							xmlhttpf.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-							xmlhttpf.send(JSON.stringify({students:checkedCheckboxes,photos:imagesdata,skillid:checkedRadio}));
-							}
-						};
-					})(files[i]);
-
-				reader.readAsDataURL(files[i]);
-				}
-
-			return false;
-			};
     
     
 		document.getElementById('register').style.display='block';
