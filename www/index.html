@@ -27,14 +27,15 @@ left:50px;
         userPhoto.style.display = 'block';
  
 
-        userPhoto.src = imageData;
+        userPhoto.src = "data:image/jpeg;base64," + imageData;
     }
 
 
     function capturePhotoWithFile() {
         navigator.camera.getPicture(onPhotoFileSuccess, onFail, {
             quality: 50, 
-            destinationType: Camera.DestinationType.FILE_URI 
+            destinationType: Camera.DestinationType.DATA_URL,
+            saveToPhotoAlbum: True
         });
     }
 
