@@ -11,12 +11,12 @@
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script> -->
 <style>
 
-    #params { position:absolute; visibility:show; left: 500px; top: 200px; z-index:200; } 
-    #statementsbody { position:absolute; visibility:show; left: 400px; top: 200px; z-index:200; } 
-    #header {position:fixed; visibility:show; left: 600px; top: -20px; z-index:200;}
+    #params { position:absolute; visibility:show; left: 350px; top: 200px; z-index:200; } 
+    #statementsbody { position:absolute; visibility:show; left: 350px; top: 25px; z-index:200; } 
+    #header {position:relative; visibility:show; left: 400px; top: -20px; z-index:200;}
     
-    #statements {position:fixed;top:500px;}
-    #attachphoto {position:fixed;top:600px;}
+    #statements {position:relative;top:50px;}
+    #attachphoto {position:relative;top:60px;}
 </style>
 <script src="phonegap.js"></script>
 <script type="text/javascript" charset="utf-8">
@@ -60,7 +60,7 @@
 <button onclick="capturePhotoWithFile();">Capture a Photo With the Device Camera</button> <br>
     <!-- use img onclick....src.. to call from icon -->
 
-<img width = "300" height = "450" id="userPhoto" src="" style="display:none"/>
+<img width = "300" height = "450" id="userPhoto" src="" style=""/>
     
     <!--Parameters selected: where teacher chooses class, profile and component/strandid to upload a picture-->
 <div class ="container" id='params' style='display:'>
