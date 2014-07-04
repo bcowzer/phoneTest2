@@ -99,17 +99,23 @@
 
 <!--When parameters are selected it's the window will be seen, where the teacher is able to select students, a statement and upload multiples pictures-->
 <div id='statementsbody' style='display:none;'>
-	Classis<br>
-	Students<br>
+	<br>
+	Select Students in photo<br>
 	<div id='students' style='float:left;'></div><br>
-	Statements<br>
-	<div id='statements'></div>
+    <br>
+       
+        
+	<div id='statements'>
+     Choose a Statement to tag in photo<br>
+    <br></div>
+    
 	<div id='attachphoto'>
-		Attachment<br><input type="file" name="img" id='photo' multiple><br><br>
-		<input type="button" value='Upload' onclick="return upload();">
+        <br>
+		Select the photo from your device gallery<br><input type="file" name="img" id='photo' multiple><br><br>
+		Now, upload to Classis website<input type="button" value='Upload' onclick="return upload();">
 	</div>
-	<hr>
-	<img src="" alt="Image preview" id="preview">
+	
+	<!--<img src="" alt="Image preview" id="preview"> -->
 </div>
 
 <script>
@@ -150,9 +156,9 @@
 						studentdiv.id="student";
 						studentdiv.style.cssText="float:left;";
 						studentdiv.innerHTML="<input type='checkbox' name='students[]' value='"+data.students[i].sid+"'>";
-                        studentdiv.innerHTML+="<img src='"+data.students[i].profilephoto+"'>";
+                        /*studentdiv.innerHTML+="<img src='"+data.students[i].profilephoto+"'>";*/
                         
-						/*studentdiv.innerHTML+="<img src='"+data.students[i].profilephoto+"'>"+data.students[i].forename+" "+data.students[i].surname+"";*/
+						studentdiv.innerHTML+="<img src='"+data.students[i].profilephoto+"'>"+data.students[i].forename+" "+data.students[i].surname+"";
                         
 						document.getElementById('students').appendChild(studentdiv);
 						}
@@ -205,7 +211,7 @@
 						imagesdata[count]={};
 						imagesdata[count]['photo']=e.target.result;
 						imagesdata[count]['name']=fileName;
-						document.getElementById('preview').src=e.target.result;
+						/*document.getElementById('preview').src=e.target.result;*/
 						if(count==filesno){
 							var checkboxes=document.getElementsByName('students[]');
 							var checkedCheckboxes={};
