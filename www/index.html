@@ -161,9 +161,9 @@
 						studentdiv.id="student";
 						studentdiv.style.cssText="float:left;";
 						studentdiv.innerHTML="<input type='checkbox' name='students[]' value='"+data.students[i].sid+"'>";
-                        /*studentdiv.innerHTML+="<img src='"+data.students[i].profilephoto+"'>";*/
+                        studentdiv.innerHTML+="<img src='"+data.students[i].profilephoto+"'>";
                         
-						studentdiv.innerHTML+="<img src='"+data.students[i].profilephoto+"'>"+data.students[i].forename+" "+data.students[i].surname+"";
+						/*studentdiv.innerHTML+="<img src='"+data.students[i].profilephoto+"'>"+data.students[i].forename+" "+data.students[i].surname+"";*/
                         
 						document.getElementById('students').appendChild(studentdiv);
 						}
