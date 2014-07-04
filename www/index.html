@@ -10,10 +10,13 @@
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script> -->
 <style>
-img{
-position:relative;
-left:50px;
-}
+
+    #params { position:absolute; visibility:show; left: 500px; top: 200px; z-index:200; } 
+    #statementsbody { position:absolute; visibility:show; left: 400px; top: 200px; z-index:200; } 
+    #header {position:fixed; visibility:show; left: 600px; top: -20px; z-index:200;}
+    
+    #statements {position:fixed;top:500px;}
+    #attachphoto {position:fixed;top:600px;}
 </style>
 <script src="phonegap.js"></script>
 <script type="text/javascript" charset="utf-8">
@@ -50,18 +53,18 @@ left:50px;
 </head>
 <body>
     
-    <div data-role="header" data-position="fixed">
+    <div data-role="header" id="header" data-position="fixed">
     <h1>ClassIS App</h1></div><br>
     
 
 <button onclick="capturePhotoWithFile();">Capture a Photo With the Device Camera</button> <br>
     <!-- use img onclick....src.. to call from icon -->
 
-<img width = "300" height = "450" id="userPhoto" src="" />
+<img width = "300" height = "450" id="userPhoto" src="" style="display:none"/>
     
     <!--Parameters selected: where teacher chooses class, profile and component/strandid to upload a picture-->
 <div class ="container" id='params' style='display:'>
-	Class
+	Please select Class
     <form name = "userclass">
 	<select name='class' onChange = "classid = this.value" id='class'>
 		<option value='0'> </option>
@@ -70,7 +73,7 @@ left:50px;
 	</select>
         </form>
 	<br>
-	Profile
+	Select Profile
     <form name = "userprofile">
 	<select name='profile' onChange= "profileid = this.value" id='profile'>
         <option value='0'></option>
@@ -80,7 +83,7 @@ left:50px;
 	</select>
         </form>
 	<br>
-	Component
+	Select Component
     <form name ="usercomponent">
 	<select name='component' onChange="componentid = this.value" id='component'>
 		<option value='0'> </option>
@@ -96,17 +99,27 @@ left:50px;
 
 <!--When parameters are selected it's the window will be seen, where the teacher is able to select students, a statement and upload multiples pictures-->
 <div class="container" id='statementsbody' style='display:none;'>
-	Classis<br>
-	Students<br>
-	<div id='students' style='float:left;'></div><br>
-	Statements<br>
-	<div id='statements'></div>
+    <br>
+    <br>
+	Select Students in Photo<br>
+	<div id='students' style='float:left;'></div>
+    <br>
+    
+	
+    <br>
+	<div id='statements'>
+       Select Statement to tag with Photo<br>
+    </div>
 	<div id='attachphoto'>
-		Attachment<br><input type="file" name="img" id='photo' multiple><br><br>
+		<br>
+        Now choose your photo from your gallery
+        <br><input type="file" name="img" id='photo' multiple><br>
+        <br>
+        And upload to the Classis website
 		<input type="button" value='Upload' onclick="return upload();">
 	</div>
 	<hr>
-	<img src="" alt="Image preview" id="preview">
+	<!--<img src="" alt="Image preview" id="preview"> -->
 </div>
 
 
@@ -148,7 +161,10 @@ left:50px;
 						studentdiv.id="student";
 						studentdiv.style.cssText="float:left;";
 						studentdiv.innerHTML="<input type='checkbox' name='students[]' value='"+data.students[i].sid+"'>";
-						studentdiv.innerHTML+="<img src='"+data.students[i].profilephoto+"'>";
+                        /*studentdiv.innerHTML+="<img src='"+data.students[i].profilephoto+"'>";*/
+                        
+						studentdiv.innerHTML+="<img src='"+data.students[i].profilephoto+"'>"+data.students[i].forename+" "+data.students[i].surname+"";
+                        
 						document.getElementById('students').appendChild(studentdiv);
 						}
 					}
@@ -274,8 +290,7 @@ left:50px;
         <img src ="images/classis.jpg">
         </div>
     
-    <div data-role="footer" data-position="fixed">
-    <h1> Learning Data ClassIS</h1></div>
+    
     
 </body>
 </html>
